@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>{% block full_meta_title %}{% block meta_title %}{% endblock %} – My Cool Site{% endblock %}</title>
+        <meta name="description" content="{%filter escape%}{%filter trim%}{%- block meta_description -%}{%- endblock -%}{% endfilter %}{% endfilter %}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/css/style.css" />
+        {% block extra_head %}{% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        <div class="site-container">
+            {% block header %}
+                <header>
+                    <div class="container">
+                        <a href="/" id="site-logo">My Cool Site</a>
+
+                        {% include "components/_nav.njk" %}
+                    </div>
+                </header>
+            {% endblock header %}
+
+            {% block content_wrapper %}
+                <div class="content container">
+                    {% block content %}{% endblock content %}
+                </div>
+            {% endblock content_wrapper %}
+
+            {% block footer %}
+                <footer>
+                    <div class="container">
+                        <p>&copy; My Cool Site 2023</p>
+                    </div>
+                </footer>
+            {% endblock footer %}
+        </div>
+
+        <script src="/js/jquery-3.7.1.min.js"></script>
+        <script src="/js/navigation.js"></script>
+        {% block extra_js %}{% endblock extra_js %}
+    </body>
+</html>

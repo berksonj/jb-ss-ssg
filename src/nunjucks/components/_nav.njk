@@ -1,0 +1,19 @@
+{% set active_id = active_id if active_id else "" %}
+<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+	{% set nav_items = [
+		{name: "Home", url: "/", id: "home"},
+		{name: "Press", url: "press.html", id: "press"},
+		{name: "Contact Card", url: "contact-card.html", id: "contact-card"},
+		{name: "Contact", url: "contact.html", id: "contact"}
+	] %}
+
+	<div class="menu-menu-1-container">
+		<ul id="menu-menu-1" class="nav-menu">
+			{%- for item in nav_items -%}
+                <li class="menu-item{% if active_id == item['id'] %} current_page_item{% endif %}">
+                    <a href="{{item['url']}}"><span>{{item["name"]}}</span></a>
+                </li>
+            {%- endfor -%}
+		</ul>
+	</div>
+</nav>

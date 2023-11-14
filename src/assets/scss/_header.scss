@@ -1,0 +1,24 @@
+header {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px 10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #000;
+    background: $background-color;
+}
+
+#site-logo {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    font-size: 2em;
+    text-decoration: none;
+    color: $secondary-color;
+
+    &:hover {
+        color: $primary-color;
+    }
+}

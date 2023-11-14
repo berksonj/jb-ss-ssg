@@ -1,0 +1,58 @@
+{% extends "_base.njk" %}
+{% set active_id = "press" %}
+{% block body_class %}press{% endblock %}
+{% block meta_title %}Press{% endblock %}
+{% block meta_description %}
+    Discover press mentions and interviews featuring Jon Jones. A curated collection of his most notable media appearances and insights.
+{% endblock %}
+
+{% block extra_head %}
+    <style>
+        .white-panel-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+        }
+        .white-panel {
+            width: 300px;
+            padding: 20px;
+        }
+        .white-panel img {
+            display: block;
+            margin-bottom: 15px;
+        }
+    </style>
+{% endblock %}
+
+
+{% macro press_item(url, title, img_path) %}
+<div class="white-panel">
+    <a href="{{url}}" target="_blank">
+        <img alt="{{title|e}}" src="{{img_path}}" />
+        <h5>
+            {{title}}
+        </h5>
+    </a>
+</div>
+{% endmacro %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="page-title">Press</h1>
+
+        <div class="white-panel-wrapper">
+            {{press_item(
+                url="https://example.com/",
+                title="Lorem Ipsum Dolor Sit Amet, Consectetur.",
+                img_path="/media/examples/pexels-pixabay-373543-alt.jpg"
+            )}}
+
+            {{press_item(
+                url="https://example.com/",
+                title="Tempor Incididunt Ut Labore",
+                img_path="/media/examples/pexels-pixabay-373543.jpg"
+            )}}
+
+        </div>
+    </div>
+{% endblock %}

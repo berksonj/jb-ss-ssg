@@ -1,0 +1,120 @@
+{% extends "_base.njk" %}
+{% set active_id = "contact-card" %}
+{% block full_meta_title %}Jon Jones{% endblock %}
+{% block extra_head %}<meta name="robots" content="noindex">{% endblock %}
+
+
+{% macro card_item(url, title, icon, details, bg_color=none, text_color=none) %}
+<div class="contact-card__item">
+	<a href="{{ url }}" target="_blank"
+        style="{% if bg_color %}background-color: {{ bg_color }};{% endif %}
+               {% if text_color %}color: {{ text_color }};{% endif %}">
+		<div class="contact-card__item__title">
+			<span class="icon">{{ icon|safe }}</span><span>{{ title }}</span>
+		</div>
+		<div class="contact-card__item__details">
+			{{ details }}
+		</div>
+	</a>
+</div>
+{% endmacro %}
+
+{% block content %}
+	<div class="contact-card">
+        <div class="contact-card__header">
+    		<div class="contact-card__image">
+    			<img src="/media/examples/pexels-pixabay-373543-alt.jpg" width="150" height="150" />
+    		</div>
+    		<h1 class="contact-card__title">Jon Jones</h1>
+        </div>
+
+		<div class="contact-card__list">
+            {% set _icon %}
+                {% include "_icons/email-square-icon.svg" %}
+            {% endset %}
+            {{ card_item(
+                url="mailto:fndr@example.com",
+                title="Email",
+                icon=_icon,
+                details="fndr@example.com",
+                bg_color="#5268b8"
+            ) }}
+
+            {% set _icon %}
+                {% set random_s = (range(1000, 10000) | random) %}
+                <style type="text/css">
+                    .www-icon--fill_{{random_s}} svg { fill: #000 !important; }
+                </style>
+                <div class="www-icon--fill_{{random_s}}">
+                    {% include "_icons/www-icon.svg" %}
+                </div>
+            {% endset %}
+            {{ card_item(
+                url="https://example.com",
+                title="Example Co.",
+                icon=_icon,
+                details="example.com",
+                bg_color="#9fd1d8",
+                text_color="#000"
+            ) }}
+
+            {% set _icon %}
+                {% include "_icons/www-icon.svg" %}
+            {% endset %}
+            {{ card_item(
+                url="https://example.com",
+                title="Jon Jones",
+                icon=_icon,
+                details="example.com",
+                bg_color="#373735"
+            ) }}
+
+            {% set _icon %}
+                {% include "_icons/linkedin-square-icon.svg" %}
+            {% endset %}
+            {{ card_item(
+                url="https://www.linkedin.com/in/jonjones",
+                title="LinkedIn",
+                icon=_icon,
+                details="Jon Jones",
+                bg_color="#0077b5"
+            ) }}
+
+            {% set _icon %}
+                {% include "_icons/instagram-square-icon.svg" %}
+            {% endset %}
+            {{ card_item(
+                url="http://instagram.com/example-co",
+                title="Instagram",
+                icon=_icon,
+                details="@example-co",
+                bg_color="#962fbf"
+            ) }}
+
+            {% set _icon %}
+                {% include "_icons/instagram-square-icon.svg" %}
+            {% endset %}
+            {{ card_item(
+                url="http://instagram.com/example",
+                title="Instagram",
+                icon=_icon,
+                details="@example",
+                bg_color="#d62976"
+            ) }}
+
+            {% set _icon %}
+                {% include "_icons/twitter-square-icon.svg" %}
+            {% endset %}
+            {{ card_item(
+                url="https://twitter.com/example-co",
+                title="Twitter",
+                icon=_icon,
+                details="@example-co",
+                bg_color="#1d9bf0"
+            ) }}
+
+
+
+		</div>
+	</div>
+{% endblock %}

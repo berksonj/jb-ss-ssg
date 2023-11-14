@@ -1,0 +1,25 @@
+exclude: ^static/.*|dist/.*|/migrations/.*|\.min\.js$|\.min\.css$|\.css\.map$|\.min\.js$|\.js\.map$|\.svg$
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: "v4.5.0"
+    hooks:
+      - id: check-added-large-files
+        args:
+          - --maxkb=256
+      - id: check-builtin-literals
+      - id: check-byte-order-marker
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-json
+        exclude: "tsconfig.json"
+      - id: check-toml
+      - id: check-yaml
+      - id: check-xml
+      - id: debug-statements
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace

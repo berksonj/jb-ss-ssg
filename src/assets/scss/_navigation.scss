@@ -1,0 +1,29 @@
+.nav-menu {
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    flex-wrap: wrap;
+
+
+    .menu-item {
+        display: block;
+        padding: 5px;
+        text-align: center;
+
+        a {
+            display: block;
+            color: $secondary-color;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid $secondary-color;
+
+            &:hover {
+                background-color: lighten($background-color, 10);
+            }
+
+            &:visited {
+                color: $secondary-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+name: sample-static-site
+static_sites:
+- name: sample-static-site  # REPLACE with your site name (optional)
+  build_command: npm run build
+  environment_slug: node-js
+  github:
+    branch: master
+    deploy_on_push: true
+    repo: berksonj/jb-ss-ssg  # REPLACE with your GitHub repo
+  output_dir: dist
