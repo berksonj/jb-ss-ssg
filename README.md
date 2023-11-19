@@ -44,6 +44,8 @@ npm run serve
 
 For large files, use [GitLFS](https://git-lfs.com/).
 
+**TODO: Doesn't work with DigitalOcean App Platform Static Site deployments yet.**
+
 ## Deployment/Hosting
 
 See [HOSTING.md](./HOSTING.md) for guides on hosting and automatic deployments on AWS.
@@ -51,3 +53,9 @@ See [HOSTING.md](./HOSTING.md) for guides on hosting and automatic deployments o
 Or,
 
 [![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/berksonj/jb-ss-ssg/tree/master)
+
+
+
+## To Dos
+
+- Is there a clean way to use GitLFS with DO's App Platform Static Site hosting?
