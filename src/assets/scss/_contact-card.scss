@@ -55,13 +55,17 @@
             font-weight: bold;
 
             .icon {
+                position: relative;
                 display: inline-block;
                 vertical-align: middle;
+                margin-top: -5px;
+                margin-right: 5px;
 
                 svg {
+                    position: relative;
+                    display: block;
                     width: 25px;
                     height: 25px;
-                    margin-right: 3px;
                     margin-left: -25px;
                     fill: white;
                 }
