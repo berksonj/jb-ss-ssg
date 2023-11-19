@@ -1,4 +1,13 @@
 @import "variables";
+
+@import "../../../node_modules/sanitize.css/assets";
+@import "../../../node_modules/sanitize.css/forms";
+@import "../../../node_modules/sanitize.css/reduce-motion";
+@import "../../../node_modules/sanitize.css/sanitize";
+@import "../../../node_modules/sanitize.css/system-ui";
+@import "../../../node_modules/sanitize.css/typography";
+@import "../../../node_modules/sanitize.css/ui-monospace";
+
 @import "reboot";
 @import "fonts";
 @import "images";

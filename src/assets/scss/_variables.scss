@@ -3,13 +3,25 @@ $primary-color: #090c08ff;
 $secondary-color: #474056ff;
 $background-color: #b9c6aeff;
 $content-background-color: #f2f2f2ff;
+
 $link-color: $primary-color;
+$body-color: #575756;
+$heading-color: #000000;
 
 // Fonts
 $header-font-family: "Recursive", Helvetica, Arial, sans-serif;
-$body-font-family: Helvetica, Arial, sans-serif;
-$body-color: #575756;
-$heading-color: #000000;
+$body-font-family: system-ui,
+    /* macOS 10.11-10.12 */ -apple-system,
+    /* Windows 6+ */ Segoe UI,
+    /* Android 4+ */ Roboto,
+    /* Ubuntu 10.10+ */ Ubuntu,
+    /* Gnome 3+ */ Cantarell,
+    /* KDE Plasma 5+ */ Noto Sans,
+    /* fallback */ sans-serif,
+    /* macOS emoji */ "Apple Color Emoji",
+    /* Windows emoji */ "Segoe UI Emoji",
+    /* Windows emoji */ "Segoe UI Symbol",
+    /* Linux emoji */ "Noto Color Emoji";
 
 
 // Standard widths
