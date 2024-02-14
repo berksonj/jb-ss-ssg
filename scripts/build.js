@@ -24,16 +24,24 @@ const compileNunjucks = (inputDir, outputDir) => {
         lstripBlocks: true,
     });
 
-    const files = fs.readdirSync(inputDir);
+    const files = fs.readdirSync(inputDir, { recursive: true });
     files.forEach((file) => {
-        if (file.endsWith(".njk") && !file.startsWith("_")) {
+        // get all files ending with .njk, but skip files starting with _
+        // _ is used to denote partials
+        const fileName = file.split("/").at(-1);
+        if (fileName.endsWith(".njk") && !fileName.startsWith("_")) {
             try {
                 const input = fs.readFileSync(`${inputDir}/${file}`, {"encoding": "utf8"});
                 // const output = nunjucks.renderString(input);
                 const output = env.renderString(input);
-                const outputFile = `${outputDir}/${file.replace(".njk", ".html")}`;
-                fs.writeFileSync(outputFile, output);
-                console.log(`${inputDir}/${file} has been compiled to ${outputFile}`);
+                const outputFilepath = `${outputDir}/${file.replace(".njk", ".html")}`;
+                const outputFilepathDir = outputFilepath.split("/").slice(0, -1).join("/");
+                if (!fs.existsSync(outputFilepathDir)) {
+                    fs.mkdirSync(outputFilepathDir, { recursive: true });
+                }
+
+                fs.writeFileSync(outputFilepath, output);
+                console.log(`${inputDir}/${file} has been compiled to ${outputFilepath}`);
             } catch (error) {
                 console.error(`Error in ${file}:`, error);
                 throw error;
