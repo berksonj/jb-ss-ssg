@@ -1,6 +1,8 @@
 const fs = require("fs");
 const sass = require('sass');
 const nunjucks = require("nunjucks");
+const md5 = require('md5');
+
 
 const scssCompilation = (inputFile, outputFile) => {
     // Compile scss to css
@@ -25,6 +27,10 @@ const compileNunjucks = (inputDir, outputDir) => {
     });
 
     const files = fs.readdirSync(inputDir, { recursive: true });
+    const _date = encodeURIComponent(md5(new Date().toISOString()))
+    const context = {
+        "modified": _date
+    }
     files.forEach((file) => {
         // get all files ending with .njk, but skip files starting with _
         // _ is used to denote partials
@@ -33,7 +39,7 @@ const compileNunjucks = (inputDir, outputDir) => {
             try {
                 const input = fs.readFileSync(`${inputDir}/${file}`, {"encoding": "utf8"});
                 // const output = nunjucks.renderString(input);
-                const output = env.renderString(input);
+                const output = env.renderString(input, context);
                 const outputFilepath = `${outputDir}/${file.replace(".njk", ".html")}`;
                 const outputFilepathDir = outputFilepath.split("/").slice(0, -1).join("/");
                 if (!fs.existsSync(outputFilepathDir)) {

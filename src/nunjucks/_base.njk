@@ -7,7 +7,7 @@
         <title>{% block full_meta_title %}{% block meta_title %}{% endblock %} – My Cool Site{% endblock %}</title>
         <meta name="description" content="{%filter escape%}{%filter trim%}{%- block meta_description -%}{%- endblock -%}{% endfilter %}{% endfilter %}" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/style.css?v={{ modified }}" />
         {% block extra_head %}{% endblock %}
     </head>
 
@@ -39,7 +39,7 @@
         </div>
 
         <script src="/js/jquery-3.7.1.min.js"></script>
-        <script src="/js/navigation.js"></script>
+        <script src="/js/navigation.js?v={{ modified }}"></script>
         {% block extra_js %}{% endblock extra_js %}
     </body>
 </html>
